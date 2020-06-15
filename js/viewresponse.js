@@ -23,7 +23,7 @@ const showListTeam = (data, listHTML, isFavorite = false) => {
                     <p>${listTim.venue}</p><br>
                 </div>
                 <div class="card-action">
-                    <center><a href="./detailtim.html?id=${listTim.id}${href}">Detail TIM</a></center>
+                    <center><a href="./pages/detailtim.html?id=${listTim.id}${href}">Detail TIM</a></center>
                 </div>
             </div>
         </div>
