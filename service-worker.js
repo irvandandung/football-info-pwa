@@ -138,28 +138,28 @@ if (workbox) {
     console.log(`Workbox load not success`);
 }
 
-self.addEventListener("fetch", function(event) {
-    let base_url = "https://api.football-data.org/v2/";
-    if (event.request.url.indexOf(base_url) > -1) {
-        event.respondWith(
-            caches.open(CACHE_NAME).then(async function(cache) {
-                const response = await fetch(event.request, {
-                    method: "GET",
-                    headers: {
-                        "X-Auth-Token": "45fde3c7f6ec4397ab50d26561781213"
-                    }
-                });
-                cache.put(event.request.url, response.clone());
-                return response;
-            }));
-    } else {
-        event.respondWith(
-            caches.match(event.request, { ignoreSearch: true }).then(function(response) {
-                return response || fetch(event.request);
-            })
-        )
-    }
-});
+// self.addEventListener("fetch", function(event) {
+//     let base_url = "https://api.football-data.org/v2/";
+//     if (event.request.url.indexOf(base_url) > -1) {
+//         event.respondWith(
+//             caches.open(CACHE_NAME).then(async function(cache) {
+//                 const response = await fetch(event.request, {
+//                     method: "GET",
+//                     headers: {
+//                         "X-Auth-Token": "45fde3c7f6ec4397ab50d26561781213"
+//                     }
+//                 });
+//                 cache.put(event.request.url, response.clone());
+//                 return response;
+//             }));
+//     } else {
+//         event.respondWith(
+//             caches.match(event.request, { ignoreSearch: true }).then(function(response) {
+//                 return response || fetch(event.request);
+//             })
+//         )
+//     }
+// });
 
 self.addEventListener('push', function(event) {
     let body;
