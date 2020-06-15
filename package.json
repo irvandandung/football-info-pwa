@@ -1,0 +1,18 @@
+{
+  "name": "epl",
+  "version": "1.0.0",
+  "description": "coba push",
+  "main": "push.js",
+  "dependencies": {
+    "web-push": "^3.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "push"
+  ],
+  "author": "dandoeng",
+  "license": "ISC"
+}

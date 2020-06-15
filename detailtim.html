@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>This is website for cek List Tim EPL</title>
+    <link href='/manifest.json' rel='manifest'>
+    <meta name="description" content="cafe Dandung Website" />
+    <meta name="theme-color" content="#ffee58" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="oursLogo.png">
+    <link rel="apple-touch-icon" href="oursLogo.png">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigasi -->
+    <nav class="teal yellow lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="/#listteam" class="brand-logo">Team EPL</a>
+            <a href="/#listteam" class="sidenav-trigger" data-target="nav-mobile">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            <ul class="topnav right hide-on-med-and-down"></ul>
+            <ul id="nav-mobile" class="sidenav"></ul>
+        </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+    <div class="container" id="body-content">
+        <div style="margin-top:30%; margin-left: 44%;" class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red" id="save">
+            <i class="large material-icons">favorite_border</i>
+        </a>
+    </div>
+
+    <!--script js-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/idb.js"></script>
+    <script src="js/indexDetail.js" type="module"></script>
+</body>
+
+</html>
