@@ -34,7 +34,8 @@ const requestPermission = _ => {
             navigator.serviceWorker.getRegistration().then(function(registration) {
                 registration.pushManager.subscribe({
                     userVisibleOnly: true,
-                    applicationServerKey: urlBase64ToUint8Array("BP3BnjW_i7wGw6xqLkp0TKyERy7SOqC2j58C-psv0cqyZ1bnGBxGDHu60Eb_oB389S4J3v6I5GP_fntGp8NF7nQ")
+                    applicationServerKey: urlBase64ToUint8Array("BL0w5_GG-7PWql1ud48LT6uqj1cdQPdRaBPqlkAbtpdGVd6v3eb-NTXcmvgXZysl6Cxvx3Y-CCS1cFRdn3FQ4dk")
+                        // applicationServerKey: 'AAAAsLq8hPw:APA91bEOIXxmQKjC3DPu82X0xTx1EIYxNOl2WgmoJ8BvtSqIC09L5UMJj-PVsPXq-UOW98MU3Bhxzjoi64sR5F0WB0TzKQ6Eo0lPSxBq312-idha7KHsT3oldc8gCqf9lKXBISZmaPfY'
                 }).then(function(subscribe) {
                     console.log('Success subscribe with endpoint: ', subscribe.endpoint);
                     console.log('Success subscribe with p256dh key: ', btoa(String.fromCharCode.apply(
