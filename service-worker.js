@@ -183,7 +183,7 @@ self.addEventListener('push', function(event) {
 });
 
 self.addEventListener('notificationclick', function(event) {
-    let url = 'http://127.0.0.1:8887/';
+    let url = 'https://irvandandung.github.io/';
     event.waitUntil(
         clients.matchAll({ type: 'window' }).then(windowClients => {
             for (let i = 0; i < windowClients.length; i++) {
