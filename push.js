@@ -1,8 +1,7 @@
 var webPush = require('web-push');
-
 const vapidKeys = {
-    "publicKey": "BP3BnjW_i7wGw6xqLkp0TKyERy7SOqC2j58C-psv0cqyZ1bnGBxGDHu60Eb_oB389S4J3v6I5GP_fntGp8NF7nQ",
-    "privateKey": "bfbeeRLy6fPfEZxXDSrC04yAS-HtEdVhfIIg-FRkXkA"
+    "publicKey": "BFuuwGsQJM21Qdgf6zgr86EjkmZCmNAlfkZU3ACuXNUnAnps6OOECmrXcJBC7cL2-lLpsNlldhVY5hiYddT7V_I",
+    "privateKey": "VBT0iFu16Rx8Oq0m9rZPSiHnoZ4jpPmfqDU8UCX5MbE"
 };
 
 
@@ -12,16 +11,15 @@ webPush.setVapidDetails(
     vapidKeys.privateKey
 )
 var pushSubscription = {
-    "endpoint": "https://fcm.googleapis.com/fcm/send/diLXU28WTf0:APA91bEghimH5x-CGQFn8H4viaEGQpH8mBRPrglcXwyI8N57hjaAP5P93emYdKZC5qngKHSvmHO47WpDQT276pqY25TXXI09kmhhzh-jIsSKU-7RMt5xkV0Ms_VYMg8DSmkKhVgro7s4",
+    "endpoint": "https://fcm.googleapis.com/fcm/send/c05qwKP5IOA:APA91bFn6Y58QMmdIe71-XfpoJTqrR6oaNXt7465470UWToxtzz1k2AalfiRB3iYFkOhZ5Aa8TKasNBYQC3astpSItTGTfnYUU9iIoVPKs1hluwTwVFdG5eAuABjIj6QHpe5ksDc4mrx",
     "keys": {
-        "p256dh": "BAFplUmKocWV7F1qErlajUWNdghkyaNHH3kvpez7uw+br0LMQ+CdoUp8Smfl3O4tv81lK/3zJfXTmenwZmkyvqw=",
-        "auth": "j0LDTkD2XWmuqZNC6pXZHw=="
+        "p256dh": "BMFrN5WlKqA2KvO32YkZ3IFTbG4KoD5IUa/m8PAJqxWAWHXfsZNBI+CoHlB5GZs5mhDFS/wxalnLYF8dB2qcb7k=",
+        "auth": "xF27hFP9cABbCH+8j/BX2g=="
     }
 };
-var payload = 'Hei, Where Are You! Check Standings EPL Now!';
-
+var payload = 'How are you, guys? cek epl standings now!';
 var options = {
-    gcmAPIKey: '489407451958',
+    gcmAPIKey: '759047161084',
     TTL: 60
 };
 webPush.sendNotification(

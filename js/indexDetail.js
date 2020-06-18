@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
             deleteById(idParam).then(function(data) {
                 console.log(data);
                 $('.btn-floating').html('<i class="large material-icons"> <i class="large material-icons">favorite_border</i></i>');
-                alert('delete from favorite success');
+                M.toast({ html: 'delete from favorite success!' });
                 window.location.href = '/#favorite';
             })
         })
@@ -41,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function() {
                             setToFavorite(listteam);
                             $('.btn-floating').attr('id', 'delete');
                             $('.btn-floating').html('<i class="large material-icons" style="color:yellow;">favorite</i>');
-                            alert('set to favorite success');
+                            M.toast({ html: 'set to favorite success!' });
                         });
                     } else {
                         deleteById(idParam).then(function(data) {
                             console.log(data);
                             $('.btn-floating').attr('id', 'save');
                             $('.btn-floating').html('<i class="large material-icons"> <i class="large material-icons">favorite_border</i></i>');
-                            alert('delete from favorite success');
+                            M.toast({ html: 'delete from favorite success!' });
                         })
                     }
                 });
@@ -60,14 +60,14 @@ document.addEventListener("DOMContentLoaded", function() {
                             setToFavorite(listteam);
                             $('.btn-floating').attr('id', 'delete');
                             $('.btn-floating').html('<i class="large material-icons" style="color:yellow;">favorite</i>');
-                            alert('set to favorite success');
+                            M.toast({ html: 'set to favorite success!' });
                         });
                     } else {
                         deleteById(idParam).then(function(data) {
                             console.log(data);
                             $('.btn-floating').attr('id', 'save');
                             $('.btn-floating').html('<i class="large material-icons"> <i class="large material-icons">favorite_border</i></i>');
-                            alert('delete from favorite success');
+                            M.toast({ html: 'delete from favorite success!' });
                         })
                     }
                 });

@@ -1,0 +1,2 @@
+-github pages = https://irvandandung.github.io/
+-firebase hosting = https://dicoding-push-notification.web.app/

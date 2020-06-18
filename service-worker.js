@@ -6,93 +6,95 @@ if (workbox) {
     /* recaching App Shell */
     workbox.precaching.precacheAndRoute([{
             url: '/',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/manifest.json',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/oursLogo.png',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/oursLogo-192.png',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/nav.html',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/index.html',
-            revision: '1'
+            revision: '2'
         },
         {
-            url: '/detailtim.html',
-            revision: '1'
+            url: '/pages/detailtim.html',
+            revision: '2'
         },
         {
             url: '/pages/favorite.html',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/pages/home.html',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/pages/listteam.html',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/css/materialize.min.css',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/css/custom.css',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/js/materialize.min.js',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/js/viewresponse.js',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/js/indexDetail.js',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/js/index.js',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/js/api.js',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/js/db.js',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/js/idb.js',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/js/jquery.min.js',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/js/serviceworkerRegister.js',
-            revision: '1'
+            revision: '2'
         },
         {
             url: '/font/Merienda-Bold.ttf',
-            revision: '1'
+            revision: '2'
         },
-    ]);
+    ], {
+        ignoreUrlParametersMatching: [/.*/]
+    });
 
 
     workbox.routing.registerRoute(

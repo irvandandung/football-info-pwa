@@ -40,11 +40,11 @@ const showDetailTeam = (data, detailHTML) => {
     detailHTML += `
                     <div class='row' id="timinfo">
                         <div class="col s12 m4 l3">
-                            <center><img src="${data.crestUrl}"/>
+                            <center><img class='responsive-img' src="${data.crestUrl}"/>
                             <h4>${data.name}</h4></center>
                         </div>
                         <div class="col s12 m8 l9" > 
-                        <table>     
+                        <table class='centered'>     
                             <p>
                                 <tr><td><b>Short Name</b></td><td>:</td><td>${data.shortName}</td></tr>
                                 <tr><td><b>Address</b></td><td>:</td><td>${data.address}</td></tr>
