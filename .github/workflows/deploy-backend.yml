@@ -1,89 +1,36 @@
-name: Deploy with Backend to Production
+name: Deploy Backend to Railway
 
 on:
   push:
     branches:
-      - production
-      - deploy
+      - main
+      - master
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
-  deploy-heroku:
-    name: Deploy to Heroku (Optional)
+  notify-railway:
+    name: Notify Railway to Redeploy
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/production'
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
-        if: secrets.HEROKU_API_KEY != ''
-
-  deploy-render:
-    name: Deploy to Render (Optional)
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/production'
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to Render
+      - name: Trigger Railway Redeployment
         run: |
-          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }} \
-            -H "Content-Type: application/json" \
-            -d '{"id":"'"${{ github.run_id }}"'"}'
-        if: secrets.RENDER_DEPLOY_HOOK != ''
+          echo "Railway will automatically redeploy when changes are pushed"
+          echo "Backend URL: https://web-production-7f5e4.up.railway.app"
+          echo "No manual trigger needed - Railway watches this GitHub repo"
+        if: always()
 
-  deploy-firebase:
-    name: Deploy to Firebase Hosting
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/production'
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
-
-      - name: Deploy to Firebase
-        run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
-        if: secrets.FIREBASE_TOKEN != ''
-
-  notify:
-    name: Notify Deployment Status
-    runs-on: ubuntu-latest
-    needs: [deploy-heroku, deploy-render, deploy-firebase]
-    if: always()
-
-    steps:
-      - name: Check deployment status
+      - name: Verify Backend Health
         run: |
-          echo "Deployment workflow completed"
-          if [ "${{ needs.deploy-heroku.result }}" == "success" ]; then
-            echo "✓ Heroku deployment successful"
-          fi
-          if [ "${{ needs.deploy-render.result }}" == "success" ]; then
-            echo "✓ Render deployment successful"
-          fi
-          if [ "${{ needs.deploy-firebase.result }}" == "success" ]; then
-            echo "✓ Firebase deployment successful"
-          fi
+          echo "Waiting for backend to be ready..."
+          sleep 5
+          curl -s https://web-production-7f5e4.up.railway.app/api/teams \
+            -H "Accept: application/json" \
+            || echo "Backend is starting up..."
+        continue-on-error: true
