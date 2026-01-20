@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const API_KEY = "45fde3c7f6ec4397ab50d26561781213";
 const BASE_API_URL = "https://api.football-data.org/v2";
 
@@ -97,5 +97,5 @@ app.get('/api/teams/:id', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
