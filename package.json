@@ -4,6 +4,7 @@
   "description": "This website epl",
   "main": "push.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +21,9 @@
   },
   "homepage": "https://github.com/irvandandung/irvandandung.github.io#readme",
   "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "node-fetch": "^2.7.0",
     "web-push": "^3.4.4"
   }
 }

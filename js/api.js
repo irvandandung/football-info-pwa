@@ -1,7 +1,7 @@
 import { getAllteam, getById } from './db.js';
 import { showListTeam, showDetailTeam, showStandings } from './viewresponse.js';
 
-const base_url = "https://api.football-data.org/v2/";
+const base_url = "http://localhost:3000/api/";
 const API_KEY = "45fde3c7f6ec4397ab50d26561781213";
 
 const status = (response) => {
@@ -26,7 +26,7 @@ const error = (error) => {
 //fuction for getListTim EPL
 const getListTim = _ => {
     if ('caches' in window) {
-        caches.match(`${base_url}competitions/2021/teams`).then((response) => {
+        caches.match(`${base_url}teams`).then((response) => {
             let listHTML = '';
             if (response) {
                 response.json().then((data) => {
@@ -36,11 +36,8 @@ const getListTim = _ => {
         });
     }
 
-    fetch(`${base_url}competitions/2021/teams`, {
-            method: "GET",
-            headers: {
-                "X-Auth-Token": API_KEY
-            }
+    fetch(`${base_url}teams`, {
+            method: "GET"
         })
         .then(status)
         .then(json)
@@ -69,10 +66,7 @@ const getDetailTimById = _ => {
         }
 
         fetch(`${base_url}teams/${idParam}`, {
-                method: "GET",
-                headers: {
-                    "X-Auth-Token": API_KEY
-                }
+                method: "GET"
             })
             .then(status)
             .then(json)
@@ -103,7 +97,7 @@ const getFavoriteDetailtim = _ => {
 
 const getStanding = _ => {
     if ('caches' in window) {
-        caches.match(`${base_url}competitions/2021/standings`).then(function(response) {
+        caches.match(`${base_url}standings`).then(function(response) {
             if (response) {
                 response.json().then((data) => {
                     let listHTML = '';
@@ -113,11 +107,8 @@ const getStanding = _ => {
         });
     }
 
-    fetch(`${base_url}competitions/2021/standings`, {
-            method: "GET",
-            headers: {
-                "X-Auth-Token": API_KEY
-            }
+    fetch(`${base_url}standings`, {
+            method: "GET"
         })
         .then(status)
         .then(json)
