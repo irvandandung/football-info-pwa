@@ -1,7 +1,7 @@
 import { getAllteam, getById } from './db.js';
 import { showListTeam, showDetailTeam, showStandings } from './viewresponse.js';
 
-const base_url = "http://localhost:3000/api/";
+const base_url = "https://web-production-7f5e4.up.railway.app/api/";
 const API_KEY = "45fde3c7f6ec4397ab50d26561781213";
 
 const status = (response) => {
